@@ -28,6 +28,7 @@ export const FLIP = (
   const dh = oldPos.height / newFlagPos.height;
 
   const play = (opts?: { promisify: boolean }) => {
+
     const animation = anime({
       targets: el,
       translateX: [dx, 0],
