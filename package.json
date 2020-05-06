@@ -5,11 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --no-cache",
+    "test:unit:watch": "vue-cli-service test:unit --watch",
     "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e:headless": "vue-cli-service test:e2e --headless",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "animejs": "^3.2.0",
+    "axios": "^0.19.2",
+    "charming": "^3.0.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
@@ -17,7 +22,11 @@
     "vue-router": "^3.1.6"
   },
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.1.2",
+    "@types/animejs": "^3.1.0",
     "@types/jest": "^24.0.19",
+    "@types/sinon": "^9.0.0",
+    "@types/webpack": "^4.41.12",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "@vue/cli-plugin-babel": "~4.3.0",
@@ -36,12 +45,14 @@
     "lint-staged": "^9.5.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.2",
+    "sinon": "^9.0.2",
+    "ts-loader": "^7.0.2",
     "typescript": "~3.8.3",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0"
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [

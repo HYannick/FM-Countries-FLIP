@@ -1,0 +1,30 @@
+.search {
+  max-width: 48rem;
+  width: 100%;
+  position: relative;
+  &__submit {
+    border: none;
+    position: absolute;
+    background: transparent;
+    outline: var(--text-color);
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    i {
+      color: var(--text-color);
+    }
+  }
+  &__input {
+    width: calc(100% - 8.5rem);
+    padding:1.5rem 1.5rem 1.5rem 7rem;
+    outline: var(--background-color);
+    box-shadow: 0 0 3rem 0 var(--shadow-color);
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--elements-color);
+    color: var(--text-color);
+    &::placeholder{
+      color: var(--text-color);
+    }
+  }
+}

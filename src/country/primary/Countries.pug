@@ -1,0 +1,26 @@
+div(style='padding: 2rem')
+  CountryDetailsVue(v-if='openDetails' :countryDetails='currentCountry' :position='position' @goBack='closeDetails')
+  div.lands-wrapper
+    div.lands-search-wrapper
+      SearchVue(@query='loadSearchResults')
+    div.lands-card__container
+      div.lands-card__item(
+        v-for='country in countriesList'
+        :key='country.id'
+        :data-id='`country-card-${country.id}`'
+        data-selector='country-card'
+        @click='navigate(country)')
+        div.lands-card__bg(:ref='`card-bg-${country.id}`')
+        .lands-card__flag(:ref='`card-image-${country.id}`')
+          img(:src='country.flagPicture' :alt='`${country.name}-flag`' :data-selector='`country-card-${country.id}.picture`')
+        div.lands-card__infos
+          h4.lands-card__title(:data-selector='`country-card-${country.id}.name`') {{country.name}}
+          p(:data-selector='`country-card-${country.id}.population`')
+            span Population:
+            span {{country.population}}
+          p(:data-selector='`country-card-${country.id}.region`')
+            span Region:
+            span {{country.region}}
+          p(:data-selector='`country-card-${country.id}.capital`')
+            span Capital:
+            span {{country.capital}}

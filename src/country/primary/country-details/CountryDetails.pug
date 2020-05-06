@@ -1,0 +1,45 @@
+div
+  div.lands-details
+    div.lands-details__overlay(ref='overlay')
+    div.lands-details__wrapper
+      div.lands-details__header
+        button(@click='goBack')
+          i.fas.fa-long-arrow-alt-left
+          | Back
+      div.lands-details__container
+        div.lands-details__flag
+          div.lands-details__picture(ref='picture')
+            img(:src='countryInfos.flagPicture' :alt='countryInfos.id')
+        div.lands-details__infos
+          h2.lands-details__title(ref='title') {{countryInfos.name}}
+          div.lands-details__content
+            div.lands-details__content-tuple
+              p Native Name:
+                span {{countryInfos.nativeName}}
+              p Population:
+                span {{countryInfos.population}}
+              p Region:
+                span {{countryInfos.region}}
+              p Sub Region:
+                span {{countryInfos.subRegion}}
+              p Capital:
+                span {{countryInfos.capital}}
+            div.lands-details__content-tuple
+              p Top Level Domain:
+                span {{countryInfos.topLevelDomain}}
+              p Currency:
+                span {{countryInfos.currencies}}
+              p Languages:
+                span {{countryInfos.languages}}
+          div.lands-details__borders(v-if='countryInfos.borderCountries.length')
+            p Border Countries:
+            div
+              span.lands-details__border(v-for="border in countryInfos.borderCountries").
+                {{border}}
+
+
+
+
+
+
+

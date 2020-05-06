@@ -1,0 +1,13 @@
+header.lands-header
+  div.lands-header__container
+    h1.lands-header__title(data-selector="header-title") Where in the world?
+    .theme-switch-wrapper
+      label.theme-switch(for='checkbox')
+        input#checkbox(type='checkbox' :checked='theme === "dark"' @change='toggleTheme($event.target.checked)')
+        transition
+          span.theme-mode(v-if='theme === "dark"')
+            i.fa.fa-moon
+            span Dark Mode
+          span.theme-mode(v-else)
+            i.fa.fa-sun-o
+            span Light Mode

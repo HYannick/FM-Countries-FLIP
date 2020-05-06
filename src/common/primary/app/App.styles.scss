@@ -1,0 +1,55 @@
+:root {
+  --background-color: hsl(0, 0%, 98%);
+  --background-color-2: hsl(0, 0%, 96%);
+  --shadow-color: hsl(0, 0%, 87%);
+  --elements-color: hsl(0, 0%, 100%);
+  --input-color: hsl(0, 0%, 52%);
+  --text-color: hsl(207, 26%, 17%);
+}
+
+[data-theme="dark"] {
+  --shadow-color: hsl(207, 19%, 12%);
+  --background-color: hsl(207, 26%, 17%);
+  --background-color-2: hsl(207, 26%, 16%);
+  --elements-color: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --input-color: hsl(209, 23%, 22%);
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var( --background-color);
+  color: var(--text-color);
+  font-size: 1.6rem;
+}
+
+#app {
+  padding-top: 9.4rem;
+}
+
+h1, p {
+  margin: 0;
+}
+
+@keyframes change-background {
+  to {
+    background-color: var(--background-color);
+  }
+}
+
+
+@keyframes move-up {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

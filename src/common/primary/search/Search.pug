@@ -1,0 +1,4 @@
+form.search(@submit.prevent='sendQuery')
+  button.search__submit(type='submit')
+    i.fas.fa-search
+  input.search__input(type='search' placeholder='Search for a country...' @change='setQuery($event.target.value)')

@@ -1,27 +1,26 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import { CountriesVue } from "@/country/primary";
+import { CountryDetailsVue } from "@/country/primary/country-details";
 
 Vue.use(VueRouter);
+export const countriesRoute = {
+  path: "/",
+  name: "countries",
+  component: CountriesVue
+};
 
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
+export const countryDetails = {
+  path: "/:countryName",
+  name: "countries.country",
+  component: CountryDetailsVue,
+  props: true
+};
+
+export const routes: Array<RouteConfig> = [countriesRoute, countryDetails];
 
 const router = new VueRouter({
+  mode: "history",
   routes
 });
 
