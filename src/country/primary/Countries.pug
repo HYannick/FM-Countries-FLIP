@@ -3,6 +3,7 @@ div(style='padding: 2rem')
   div.lands-wrapper
     div.lands-search-wrapper
       SearchVue(@query='loadSearchResults')
+      SelectVue(@change='filterResults' :options='regions')
     div.lands-card__container
       div.lands-card__item(
         v-for='country in countriesList'

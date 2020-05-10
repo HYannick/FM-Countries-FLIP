@@ -16,7 +16,7 @@
     background-color: var(--elements-color);
     transform-origin: top left;
     z-index: -1;
-    animation: change-background 1.1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation: change-background 1.1s var(--cubic-ease) forwards;
   }
   &__wrapper {
     max-width: 144rem;
@@ -96,7 +96,7 @@
     justify-content: space-between;
     opacity: 0;
     transform: translateY(10rem);
-    animation: move-up 1.1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation: move-up 1.1s var(--cubic-ease) forwards;
     @media screen and (min-width: 1024px) {
       flex-direction: row;
       margin: 4rem 0 8rem;
@@ -126,7 +126,7 @@
     flex-direction: column;
     opacity: 0;
     transform: translateY(10rem);
-    animation: move-up 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation: move-up 1.2s var(--cubic-ease) forwards;
     @media screen and (min-width: 1024px) {
       flex-direction: row;
     }

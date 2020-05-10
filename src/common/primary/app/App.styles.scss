@@ -5,6 +5,7 @@
   --elements-color: hsl(0, 0%, 100%);
   --input-color: hsl(0, 0%, 52%);
   --text-color: hsl(207, 26%, 17%);
+  --cubic-ease: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 [data-theme="dark"] {
@@ -51,5 +52,11 @@ h1, p {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes expand-container {
+  to {
+    transform: scaleY(1);
   }
 }

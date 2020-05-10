@@ -1,0 +1,20 @@
+.select-box
+  .select-box__wrapper
+    .select-box__current(@click='toggleOptions')
+      span {{selectedOption.label}}
+      button(:class='{"--expanded": isOpen}')
+        i.fas.fa-angle-down
+    transition(v-if='isOpen' :css='false' @enter='enterContainer' @leave='leaveContainer' appear)
+      transition-group(
+        class='select-box__list'
+        name='staggered-fade'
+        tag='ul'
+        :css='false'
+        @before-enter='beforeEnter'
+        @enter='enter'
+        appear)
+        li.select-box__list-item(v-for='(option, index) in selectOptions' :key='index' :data-index='index' @click='change(option.value)') {{option.label}}
+  select.select__input(
+    :value='selectedOption.value'
+    name='region-selector')
+    option(v-for='option in selectOptions' :value='option.value') {{option.label}}

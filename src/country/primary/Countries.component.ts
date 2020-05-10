@@ -10,15 +10,24 @@ import { Countries } from "@/country/domain/Country";
 import { CountryDetailsVue } from "@/country/primary/country-details";
 import { FLIPAnimation, FLIPParams } from "@/common/primary/FLIP";
 import anime from "animejs";
+import { SelectVue } from '@/common/primary/select';
 
 @Component({
   components: {
     SearchVue,
+    SelectVue,
     CountryDetailsVue
   }
 })
 export default class CountriesComponent extends Vue {
   public countriesList: CountriesDataSet = [];
+  public regions: string[] = [
+    'Asia',
+    'Africa',
+    'Americas',
+    'Europe',
+    'Oceania'
+  ];
 
   @Inject()
   countryRepository!: () => CountryRepository;
@@ -42,6 +51,11 @@ export default class CountriesComponent extends Vue {
   openDetails = false;
   descAnimation: any;
 
+  async filterResults(value: string) {
+    await this.getAllCountries();
+    this.countriesList = this.countriesList.filter(country => country.region.toLowerCase() === value);
+  }
+
   loadSearchResults(query: string) {
     if (!query) {
       this.getAllCountries();
@@ -60,8 +74,8 @@ export default class CountriesComponent extends Vue {
     this.countriesList = toCountryDataSet(countries);
   }
 
-  private getAllCountries() {
-    this.countryRepository()
+  private getAllCountries(): Promise<void> {
+    return this.countryRepository()
       .listAll()
       .then(countries => this.from(countries));
   }
