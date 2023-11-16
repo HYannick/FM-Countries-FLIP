@@ -14,28 +14,28 @@ export class CountryResource implements CountryRepository {
 
   listAll(): Promise<Countries> {
     return this.backendCaller
-      .get<RestCountries>("/v2/all")
+      .get<RestCountries>("/all")
       .then(({ data }) => toCountries(data));
   }
 
   listByRegion(region: Region): Promise<Countries> {
     const escapedRegion = region.toLowerCase();
     return this.backendCaller
-      .get<RestCountries>(`/v2/region/${escapedRegion}`)
+      .get<RestCountries>(`/region/${escapedRegion}`)
       .then(({ data }) => toCountries(data));
   }
 
   searchByCountryName(query: string): Promise<Countries> {
     const escapedName = query.toLowerCase();
     return this.backendCaller
-      .get<RestCountries>(`/v2/name/${escapedName}`)
+      .get<RestCountries>(`/name/${escapedName}`)
       .then(({ data }) => toCountries(data));
   }
 
   getCountry(countryName: CountryName): Promise<Country> {
     const escapedCountryName = countryName.toLowerCase();
     return this.backendCaller
-      .get<RestCountries>(`/v2/name/${escapedCountryName}`)
+      .get<RestCountries>(`/name/${escapedCountryName}`)
       .then(({ data: [country] }) => toCountry(country));
   }
 }
